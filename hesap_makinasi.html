@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hesap Makinası</title>
+    <style>
+        body {
+            background-color: burlywood;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+            background-color: tomato;
+            width: 300px;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgb(6, 220, 120);
+        }
+        .input-kutusu {
+            margin-bottom: 20px;
+            
+        }
+        .input-kutusu input {
+            width: 200px;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 10px;
+            border: 2px solid #ccc;
+        }
+        .sayi-butonlari {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .sayi-butonlari button {
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            margin: 5px;
+            border-radius: 10px;
+        }
+        .islem-butonlari {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            background-color: lightcoral;
+            padding: 10px;
+        }
+        .islem-butonlari button {
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            margin: 5px;
+            border-radius: 10px;
+            
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="input-kutusu">
+            <input type="text" id="input" placeholder="Sayıları girin: ">
+        </div>
+        <div class="sayi-butonlari">
+            <button id="s1" onclick="s1()">1</button>
+            <button id="s2" onclick="s2()">2</button>
+            <button id="s3" onclick="s3()">3</button>
+            <button id="s4" onclick="s4()">4</button>
+            <button id="s5" onclick="s5()">5</button>   
+            <button id="s6" onclick="s6()">6</button>
+            <button id="s7" onclick="s7()">7</button>
+            <button id="s8" onclick="s8()">8</button>
+            <button id="s9" onclick="s9()">9</button>
+            <button id="s0" onclick="s0()">0</button>
+        </div>
+        <div class="islem-butonlari">
+            <button id="topla" onclick="topla()">+</button>
+            <button id="cikar" onclick="cikar()">-</button>
+            <button id="carp" onclick="carp()">*</button>
+            <button id="bol" onclick="bol()">/</button>
+            <button id="esittir" onclick="hesapla()">=</button>
+            <button id="temizle" onclick="temizle()">C</button>
+
+
+            <script src="hesap_makinasi.js"></script>
+    </div>
+</body>
+</html>
