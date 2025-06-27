@@ -4,98 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ToDo-List</title>
+    <link rel="stylesheet" href="styles.css"> 
+     <!-- moved the css to an external file -->
 
-    <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: darkkhaki;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .container {
-            width: 500px;
-            height: 550px;
-            background-color:goldenrod;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content:start;
-            border-radius: 30px;
-            box-shadow: 0 0 10px yellowgreen;
-        }
-        .task-box {
-            width: 400px;
-            height: 350px;
-            background-color: lightyellow;
-            box-sizing: border-box;
-            border-radius: 10px;
-            margin-top: 30px;
-        }
-        .container .input-box {
-            width: 100%;
-            margin-top: 30px;
-            display: flex;
-            justify-content: center;
-            box-sizing: border-box;
-            height: 35px;
-            margin-bottom: 20px;
-        }
-        .container .input-box input {
-            width: 340px;
-            height: 30px;
-            border: none;
-            border-radius: 7px;
-            font-size: 16px;
-            outline: none;
-        }
-        .container .buttons {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            box-sizing: border-box;
-            height: 30px;
-            gap: 20px;
-        }
-        .container .buttons button {
-            width: 100px;
-            height: 30px;
-            border: none;
-            border-radius: 5px;
-            background-color: darkkhaki;
-            color: white;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        .container .buttons button:hover {
-            background-color: white;
-            color: darkkhaki;
-        }
-        .container .task-box ol {
-            font-size: 16px;
-        }
-    </style>
 </head>
 
 <body>
     <div class="container">
-        
+        <div class="header"><h1>~To Do App~</h1></div>
         <div class="input-box">
-            <input type="text" placeholder="Enter your task:" id="taskInput" >
+            <label for="task-input"> Task: </label>
+            <input type="text" placeholder="Enter your task:" id="task-input" >
+            <label for="date-input"> Deadline: </label>
+            <input type="date" placeholder="Enter your Details" id="date-input"> 
+        
         </div>
         <div class="buttons">
-            <button onclick="add()">Add</button>
-            <button onclick="delet()">Delete</button>
-            <button onclick="clearAll()">Clear All</button>
+            <button type="button" id="add-btn">Add</button>
+            <button type="button" id="delete-btn">Delete</button>
+            <button type="button" id="clear-btn">Clear All</button>
         </div>
         <div class="task-box">
-            <ol id="taskList"></ol>
+            
         </div>
     </div>
 
     <script src="todoList.js"></script>
 </body>
 </html>
+
+
+<!-- Changes: 
+
+HTML & CSS 
+
+1. changed the ids because  HTML uses kebab-case (e.g., my-element-id) with dashes no capitals
+javaScript uses  camelCase (e.g., myElementId)  
+
+2. moved the css to an external file  because I like to keep the HTML cleaner
+
+3. added labels - usually useful for a visually handicapped so whenever we put input, we add a label too for accessability
+
+4. added date input
+
+5. button - added type="button"
+
+6. Sorry I ruined your css - please adjust it . After I added the heading the white box needs adjusting
+
+7. Task list will be a table so removed the OL
+
+JS
+
+8. onclick="add()"  >  addEventListener  - this is a better way to do the same cz then we can change js independantly. I hope u dont mind
+
+-->
+
