@@ -1,7 +1,6 @@
 const taskInput  = document.getElementById("task-input"); //kebab-case to camel case here
 const dateInput = document.getElementById("date-input");
 const addBtn = document.getElementById("add-btn");
-const deleteBtn = document.getElementById("delete-btn");
 const clearBtn = document.getElementById("clear-btn");
 const taskBox = document.getElementById("task-box");
 const taskList = document.getElementById("task-list");
@@ -21,18 +20,15 @@ const cleanInput = (text) => {
     return cleanedText;
 };
 
-// cleanInput("           Bj(ereO%$ 1f8df2er1g?? g   ");
-
 const display = () => {
 
-    // const liste = document.createElement("li");
-    // liste.textContent = task;
-    // taskList.appendChild(liste);
-
+    taskList.innerHTML = "";
     const currentList = JSON.parse(localStorage.getItem("tasksToDo"));
+    console.log(currentList);
 
-    for(let one in currentList){
-        taskList.innerHTML = `<li>${one.task} -> ${one.date}</li>`;
+    for(let i = 0; i < currentList.length ; i++){
+        taskList.innerHTML += `<li id="task${i}">${currentList[i].task} -> ${currentList[i].date}
+        <button type="button" id="task${i}-done-btn" onclick="markDone(this)" title="mark done">✔️</button><button type="button" id="task${i}-delete-btn" onclick="deleteThis(this)" title="mark delete">❌</button></li>`;
     }
 
     taskInput.value = "";
@@ -55,7 +51,9 @@ function add() {
     else {
         //saving values to program
         currentTask = {task: taskTitle, date: TaskDate};
+        console.log(currentTask);//test
         tasks.push(currentTask);
+        console.log(tasks);//test
         //saving to memory
         localStorage.setItem("tasksToDo", JSON.stringify(tasks));
         display();
@@ -64,15 +62,24 @@ function add() {
 }
 
 
-const deleteTask = () => {
+const deleteThis = (btnElement) => {
+    const currentIndex = tasks.findIndex((obj) => {
+        obj.id 
+    });
 
 };
 
 const clear = () => {
+    localStorage.removeItem("tasksToDo");
+    tasks = [];
+    display();
+};
 
+const markDone = (btnElement)=> {
+    btnElement.parentElement.style.textDecoration = "line-through";
 };
 
 //event Listeners for buttons
 addBtn.addEventListener("click", add);
-deleteBtn.addEventListener("click", deleteTask);
 clearBtn.addEventListener("click", clear);
+display();
