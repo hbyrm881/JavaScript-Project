@@ -1,3 +1,5 @@
+//Todo list
+
 const taskInput  = document.getElementById("task-input"); //kebab-case to camel case here
 const dateInput = document.getElementById("date-input");
 const addBtn = document.getElementById("add-btn");
@@ -5,7 +7,7 @@ const clearBtn = document.getElementById("clear-btn");
 const taskBox = document.getElementById("task-box");
 const taskList = document.getElementById("task-list");
 
-//just in case
+//just in case - if there is an error 
 // localStorage.removeItem("tasksToDo");
 // localStorage.clear();
 
@@ -26,31 +28,31 @@ const display = () => {
     const currentList = JSON.parse(localStorage.getItem("tasksToDo"));
     console.log(currentList);
 
-    for(let i = 0; i < currentList.length ; i++){
-        taskList.innerHTML += `<li id="task${i}">${currentList[i].task} -> ${currentList[i].date}
-        <button type="button" id="task${i}-done-btn" onclick="markDone(this)" title="mark done">✔️</button><button type="button" id="task${i}-delete-btn" onclick="deleteThis(this)" title="mark delete">❌</button></li>`;
+    if(tasks.length > 0){
+        for(let i = 0; i < currentList.length ; i++){
+            taskList.innerHTML += `<li id="task${i}">${currentList[i].task} -> ${currentList[i].date}
+            <button type="button" id="task${i}-done-btn" onclick="markDone(this)" title="mark done">✔️</button><button type="button" id="task${i}-delete-btn" onclick="deleteThis(${currentList[i].id})" title="mark delete">❌</button></li>`;
+        }
+
+        taskInput.value = "";
+        dateInput.value = "";
     }
 
-    taskInput.value = "";
-    dateInput.value = "";
-
 };
-
-
 
 //main functions
 function add() {
     
     let currentTask;
     const taskTitle = cleanInput(taskInput.value);
-    const TaskDate = dateInput.value;
+    const taskDate = dateInput.value; 
     if (taskTitle === "") {
         alert("Please enter a task");
         return;
     }
     else {
         //saving values to program
-        currentTask = {task: taskTitle, date: TaskDate};
+        currentTask = {id:(tasks.length), task: taskTitle, date: taskDate};
         console.log(currentTask);//test
         tasks.push(currentTask);
         console.log(tasks);//test
@@ -62,11 +64,14 @@ function add() {
 }
 
 
-const deleteThis = (btnElement) => {
-    const currentIndex = tasks.findIndex((obj) => {
-        obj.id 
-    });
-
+const deleteThis = (id) => {
+    
+    const newTasks = tasks.filter((task)=> 
+        task.id !== id
+    );
+    tasks = newTasks
+    localStorage.setItem("tasksToDo", JSON.stringify(tasks));
+    display();
 };
 
 const clear = () => {
@@ -82,4 +87,4 @@ const markDone = (btnElement)=> {
 //event Listeners for buttons
 addBtn.addEventListener("click", add);
 clearBtn.addEventListener("click", clear);
-display();
+
