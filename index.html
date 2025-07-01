@@ -12,13 +12,18 @@
 <body onload="display()">
     <div class="container">
         <div class="header"><h1>~To Do App~</h1></div>
-        <div class="input-box">
-            <label for="task-input"> Task: </label>
-            <input type="text" placeholder="Enter your task:" id="task-input" >
-            <label for="date-input"> Deadline: </label>
-            <input type="date" placeholder="Enter your Details" id="date-input"> 
-        
-        </div>
+        <div class="input-box-part"> 
+            <div class="input-columns">
+                <div class="input-group">
+                    <label for="task-input"> Task: </label>
+                    <input type="text" placeholder="Enter your task:" id="task-input" >
+                </div>
+                <div class="input-group2">
+                    <label for="date-input"> Deadline: </label>
+                    <input type="date" placeholder="Enter your Details" id="date-input"> 
+                </div>
+            </div>
+        </div>    
         <div class="buttons">
             <button type="button" id="add-btn">Add</button>
             <button type="button" id="clear-btn">Clear All</button>

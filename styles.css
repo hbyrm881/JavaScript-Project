@@ -12,7 +12,7 @@ body {
         }
 .container {
     width: 500px;
-    height: 550px;
+    height: 630px;
     background-color:goldenrod;
     display: flex;
     flex-direction: column;
@@ -21,6 +21,16 @@ body {
     border-radius: 30px;
     box-shadow: 0 0 10px yellowgreen;
     }
+.container .input-box-part {
+            display: flex;
+            margin-bottom: 20px;
+        }
+.container .input-box-part label {
+            margin-right: 10px;
+            font-size: 16px;
+            color: white;
+            display: block;
+        }
 .task-box {
             width: 400px;
             height: 350px;
@@ -33,11 +43,61 @@ body {
             width: 100%;
             margin-top: 30px;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             box-sizing: border-box;
             height: 35px;
             margin-bottom: 20px;
         }
+
+.input-columns {
+    display: flex;
+    gap: 30px;
+}
+label, input {
+    padding: 0;
+}
+
+.input-group,
+.input-group2 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.input-group label,
+.input-group2 label {
+    color: white;
+    font-size: 16px;
+    margin-bottom: 5px;
+    padding: 0;
+}
+
+/* Sadece inputlara küçük padding */
+.input-group input[type="text"],
+.input-group input[type="date"]{
+    height: 30px;
+    border: none;
+    border-radius: 7px;
+    font-size: 16px;
+    outline: none;
+    padding: 0 10px;
+    width: 180px;
+}
+.input-group2 input[type="text"],
+.input-group2 input[type="date"] {
+    height: 30px;
+    border: none;
+    border-radius: 7px;
+    font-size: 16px;
+    outline: none;
+    padding: 0 10px;
+    width: 100px;
+}
+label, input {
+    padding: 0;
+}
+/* ...existing code... */
+
 .container .input-box .inputs {
             width: 340px;
             height: 30px;
@@ -53,7 +113,8 @@ body {
             justify-content: center;
             box-sizing: border-box;
             height: 30px;
-            gap: 20px;
+            gap: 70px;
+            
         }
 .container .buttons button {
             width: 100px;
