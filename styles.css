@@ -1,4 +1,4 @@
-/*  moved the css to an external file */
+
 
 body {
     font-family: Arial, Helvetica, sans-serif;
@@ -71,8 +71,6 @@ label, input {
     margin-bottom: 5px;
     padding: 0;
 }
-
-/* Sadece inputlara küçük padding */
 .input-group input[type="text"],
 .input-group input[type="date"]{
     height: 30px;
@@ -96,7 +94,7 @@ label, input {
 label, input {
     padding: 0;
 }
-/* ...existing code... */
+
 
 .container .input-box .inputs {
             width: 340px;
